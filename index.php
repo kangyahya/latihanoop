@@ -50,9 +50,6 @@ if ($page == "") {
       <div class="col-md-2 bg-dark mt-2 pr-3 pt-4">
         <ul class="nav flex-column ml-3 mb-5">
           <li class="nav-item">
-            <a href="?page=dashboard" class="nav-link active text-white">Dashboard</a>
-          </li>
-          <li class="nav-item">
             <a href="?page=user" class="nav-link active text-white">Users</a>
           </li>
           <li class="nav-item">

@@ -28,6 +28,34 @@ class Database
     $data = mysqli_query($this->connection, "select * from {$table} where {$where[0][0]} = '{$where[0][1]}'");
     return mysqli_fetch_array($data);
   }
+
+  public function insert($table, $data)
+  {
+    $key = array_keys($data);
+    $value = array_values($data);
+    $keys = implode(', ',$key);
+    $values = implode("','", $value);
+    mysqli_query($this->connection, "INSERT INTO {$table} ({$keys}) VALUES ('{$values}')");
+  }
+  public function update($table, $data, $where)
+  {
+    if (count($data) > 0) {
+      foreach ($data as $key => $value) {
+        // code...
+        // $value = mysql_real_escape_string($value); // this is dedicated to @Jon
+        $value = "'$value'";
+        $updates[] = "$key = $value";
+      }
+    }
+    $implodeArray = implode(' ,',$updates);
+    $sql = ("UPDATE {$table} SET $implodeArray WHERE id = '{$where}'");
+    mysqli_query($this->connection, $sql);
+    mysqli_close();
+  }
+  protected function _insert($table, $keys, $values)
+	{
+		return mysqli_query($this->connection,'INSERT INTO '.$table.' ('.implode(', ', $keys).') VALUES ('.implode(', ', $values).')');
+	}
 }
 
 ?>
