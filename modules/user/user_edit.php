@@ -1,12 +1,13 @@
 <?php
 if (isset($_POST['submit'])) {
+  $id = $_POST['id'];
   $data = [
     'nama' => $_POST['nama'],
     'kelas' => $_POST['kelas'],
     'kota' => $_POST['kota'],
     'jk' => $_POST['jk'],
   ];
-  $db->update('users', $data, $_GET['id']);
+  $db->update('users', $data, $id);
   header('location:?page=user');
 }
 $userdata = $db->get_where('users',[array('id', $_GET['id'])]);

@@ -36,19 +36,24 @@ class Database
     $keys = implode(', ',$key);
     $values = implode("','", $value);
     mysqli_query($this->connection, "INSERT INTO {$table} ({$keys}) VALUES ('{$values}')");
+    mysqli_close();
   }
   public function update($table, $data, $where)
   {
     if (count($data) > 0) {
       foreach ($data as $key => $value) {
-        // code...
-        // $value = mysql_real_escape_string($value); // this is dedicated to @Jon
         $value = "'$value'";
         $updates[] = "$key = $value";
       }
     }
     $implodeArray = implode(' ,',$updates);
     $sql = ("UPDATE {$table} SET $implodeArray WHERE id = '{$where}'");
+    mysqli_query($this->connection, $sql);
+    mysqli_close();
+  }
+  public function delete($table, $where)
+  {
+    $sql = "DELETE FROM {$table} WHERE id = {$where}";
     mysqli_query($this->connection, $sql);
     mysqli_close();
   }
