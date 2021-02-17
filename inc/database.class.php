@@ -52,10 +52,6 @@ class Database
     mysqli_query($this->connection, $sql);
     mysqli_close();
   }
-  protected function _insert($table, $keys, $values)
-	{
-		return mysqli_query($this->connection,'INSERT INTO '.$table.' ('.implode(', ', $keys).') VALUES ('.implode(', ', $values).')');
-	}
 }
 
 ?>
