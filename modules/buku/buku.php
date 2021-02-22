@@ -1,6 +1,6 @@
 <?php $bukudata = $db->get('buku'); ?>
 <h3>Data Buku</h3>
-<a href="?page=user_add" class="btn btn-primary">Tambah Buku</a>
+<a href="?page=buku_add" class="btn btn-primary">Tambah Buku</a>
 <table width="100%" class="table table-hover table-bordered">
   <thead>
     <tr class="bg-green">
