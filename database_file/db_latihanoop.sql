@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 22, 2021 at 12:27 AM
+-- Generation Time: Feb 22, 2021 at 02:04 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `buku`
+--
+
+CREATE TABLE `buku` (
+  `id` int(11) NOT NULL,
+  `nama_buku` varchar(100) NOT NULL,
+  `penerbit` varchar(100) NOT NULL,
+  `tahun_terbit` year(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `buku`
+--
+
+INSERT INTO `buku` (`id`, `nama_buku`, `penerbit`, `tahun_terbit`) VALUES
+(1, 'Pemrograman PHP', 'YT Studio', 2021);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -40,14 +60,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama`, `kelas`, `kota`, `jk`) VALUES
-(8, 'Ahmad Sahlan', 'XII RPL', 'Cirebon', 'L'),
-(9, 'Ebes', 'XII RPL', 'Cirebon', 'L'),
-(10, 'Ahmad Sahlan', 'XII RP', 'Cirebon', 'L'),
-(11, 'Ahmad Sahlan', 'XII RPL', 'Cirebon', 'L');
+(12, 'Edi', 'XII RPL', 'Cirebon', 'L');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `buku`
+--
+ALTER TABLE `buku`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -60,10 +83,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `buku`
+--
+ALTER TABLE `buku`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
