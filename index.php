@@ -53,6 +53,9 @@ if ($page == "") {
             <a href="?page=user" class="nav-link active text-white">Users</a>
           </li>
           <li class="nav-item">
+            <a href="?page=buku" class="nav-link active text-white">Buku</a>
+          </li>
+          <li class="nav-item">
             <a href="logout.php" class="nav-link text-white">Logout</a>
           </li>
         </ul>
